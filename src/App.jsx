@@ -3,6 +3,7 @@ import ColorInput from './components/ColorInput'
 import ContrastResult from './components/ContrastResult'
 import PreviewBox from './components/PreviewBox'
 import ColorVisionSimulation from './components/ColorVisionSimulation'
+import CSSExport from './components/CSSExport'
 
 function App() {
   const [color1, setColor1] = useState('#ffffff')
@@ -16,6 +17,7 @@ function App() {
       <ContrastResult color1={color1} color2={color2} />
       <PreviewBox color1={color1} color2={color2} />
       <ColorVisionSimulation color1={color1} color2={color2} />
+      <CSSExport color1={color1} color2={color2} />
     </div>
   )
 }  
