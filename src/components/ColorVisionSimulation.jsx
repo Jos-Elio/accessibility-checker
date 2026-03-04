@@ -6,30 +6,60 @@ const VISION_TYPES = [
     { id: 'tritanopia', label: 'Tritanopia', description: 'Blue color deficiency' }
 ]
 
+function Badge({ pass, label }) {
+    return (
+        <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${pass ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+            {label}: {pass ? 'Pass ✓' : 'Fail ✗'}
+        </span>
+    )
+}
+
 function ColorVisionSimulation({ color1, color2 }) {
     return (
-        <div className="mb-6">
-            <p className="font-semibold text-gray-700 mb-3">Color Vision Simulation</p>
-            <div className="flex flex-col gap-4">
+        <div className="bg-white rounded-xl border border-gray-200 p-6">
+            <h2 className="text-lg font-semibold text-gray-900 mb-1">
+                CVD Color Vision Deficiency (Color Blindness) Simulation
+            </h2>
+            <p className="text-sm text-gray-900 mb-4">
+                How your color combination appears with different types of color vision deficiency:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {VISION_TYPES.map(type => {
                     const simColor1 = simulateCVD(color1, type.id)
                     const simColor2 = simulateCVD(color2, type.id)
-                    const ratio = getContrastRatio(simColor1, simColor2).toFixed(2)
+                    const ratio = getContrastRatio(simColor1, simColor2)
+                    const ratioRounded = ratio.toFixed(2)
+
+                    const passAA = ratio >= 4.5
+                    const passAAA = ratio >= 7
 
                     return (
-                        <div key={type.id} className="p-4 rounded-lg border border-gray-200 bg-white">
-                            <p className="text-sm font-semibold text-gray-600 mb-2">
-                                {type.label} - {type.description}
-                            </p>
-                            <div className="p-4 rounded mb-2" style={{ backgroundColor: simColor1 }}>
-                                <p className="text-lg font-bold" style={{ color: simColor2 }}>
-                                    The quick brown fox jumps over the lazy dog.
+                        <div key={type.id} className="flex flex-col rounded-lg border border-gray-200 overflow-hidden">
+                            {/* Card Header */}
+                            <div className="px-4 py-3 border-b border-gray-200">
+                                <p className="text-sm font-semibold text-gray-900">{type.label}</p>
+                                <p className="text-xs text-gray-600">{type.description}</p>
+                            </div>
+
+                            {/* Color Preview */}
+                            <div className="flex-1 p-4" style={{ backgroundColor: simColor1 }}>
+                                <p className="text-base font-semibold mb-1" style={{ color: simColor2}}>
+                                    The quick brown fox
                                 </p>
-                                <p className="text-sm" style={{ color: simColor2 }}>
-                                    Small text:  The jolly wizard brews exotic magic potions for quirky dwarves.
+                                <p className="text-xs" style={{ color: simColor2}}>
+                                    Small text sample
                                 </p>
                             </div>
-                            <p className="text-sm text-gray-500">Contrast Ratio: {ratio}:1</p>
+
+                            {/* Result */}
+                            <div className="px-4 py-3 border-t border-gray-200 flex flex-col gap-1.5">
+                                <p className="text-sm font-semibold text-gray-900">Ratio: {ratioRounded}:1</p>
+                                <div className="flex flex-wrap gap-1">
+                                    <Badge pass={passAA} label="AA" />
+                                    <Badge pass={passAAA} label="AAA" />
+                                </div>
+                            </div>                   
                         </div>
                     )
                 })}
