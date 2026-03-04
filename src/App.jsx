@@ -2,6 +2,7 @@ import { useState } from 'react'
 import ColorInput from './components/ColorInput'
 import ContrastResult from './components/ContrastResult'
 import PreviewBox from './components/PreviewBox'
+import ColorVisionSimulation from './components/ColorVisionSimulation'
 
 function App() {
   const [color1, setColor1] = useState('#ffffff')
@@ -14,6 +15,7 @@ function App() {
       <ColorInput color={color2} setColor={setColor2} label="Text" />
       <ContrastResult color1={color1} color2={color2} />
       <PreviewBox color1={color1} color2={color2} />
+      <ColorVisionSimulation color1={color1} color2={color2} />
     </div>
   )
 }  
