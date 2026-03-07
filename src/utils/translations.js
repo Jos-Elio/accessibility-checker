@@ -1,3 +1,4 @@
+// EN + DE translations for the app
 export const translations = {
     en: {
         title: 'Color Accessibility Checker',

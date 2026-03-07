@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import ColorInput from './components/ColorInput'
 import ContrastResult from './components/ContrastResult'
-import PreviewBox from './components/PreviewBox'
 import ColorVisionSimulation from './components/ColorVisionSimulation'
 import CSSExport from './components/CSSExport'
 import { translations } from './utils/translations'

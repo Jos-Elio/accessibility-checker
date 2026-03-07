@@ -1,5 +1,6 @@
 import { getContrastRatio } from '../utils/colorUtils'
 
+// Component to display contrast ratio results and WCAG compliance
 function ContrastResult({ color1, color2, t}) {
     const ratio = getContrastRatio(color1, color2)
     const ratioRounded = ratio.toFixed(2)

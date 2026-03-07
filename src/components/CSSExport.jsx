@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+// Component to display the CSS code for the generated colors and allow copying to clipboard
 function CSSExport({ color1, color2, t }) {
     const [copied, setCopied] = useState(false)
 

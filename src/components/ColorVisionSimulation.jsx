@@ -1,3 +1,5 @@
+// A component that simulates how colors appear to individuals with different types of color vision deficiencies (CVD)
+// Evaluates the contrast ratio of the simulated colors against accessibility standards (WCAG AA and AAA).
 import { simulateCVD, getContrastRatio } from "../utils/colorUtils"
 
 const VISION_TYPES = [
@@ -6,6 +8,7 @@ const VISION_TYPES = [
     { id: 'tritanopia', label: 'Tritanopia', description: 'Blue color deficiency' }
 ]
 
+// A small badge component to indicate pass/fail status for accessibility criteria.
 function Badge({ pass, label }) {
     return (
         <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${pass ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
@@ -14,6 +17,8 @@ function Badge({ pass, label }) {
     )
 }
 
+// Takes two colors and simulates how they would appear under different types of color vision deficiencies
+// Calculating the contrast ratio and checking against WCAG standards.
 function ColorVisionSimulation({ color1, color2, t }) {
     return (
         <div className="bg-white rounded-xl border border-gray-200 p-6">

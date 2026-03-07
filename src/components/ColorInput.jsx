@@ -1,3 +1,4 @@
+// A reusable color input component that includes a color picker, a text input for hex values, and a preview box.
 function ColorInput({ color, setColor, label}) {
     return (
         <div className="flex flex-col gap-2 mb-6">
