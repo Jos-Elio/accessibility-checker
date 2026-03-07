@@ -1,7 +1,7 @@
 function ColorInput({ color, setColor, label}) {
     return (
         <div className="flex flex-col gap-2 mb-6">
-            <label className="font-semibold text-gray-700">{label}</label>
+            <label className="font-semibold text-gray-900">{label}</label>
             <div className="flex items-center gap-3">
                 <input
                     type="color"

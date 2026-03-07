@@ -1,6 +1,6 @@
 import { getContrastRatio } from '../utils/colorUtils'
 
-function ContrastResult({ color1, color2}) {
+function ContrastResult({ color1, color2, t}) {
     const ratio = getContrastRatio(color1, color2)
     const ratioRounded = ratio.toFixed(2)
 

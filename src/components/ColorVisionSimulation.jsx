@@ -14,14 +14,14 @@ function Badge({ pass, label }) {
     )
 }
 
-function ColorVisionSimulation({ color1, color2 }) {
+function ColorVisionSimulation({ color1, color2, t }) {
     return (
         <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-1">
-                CVD Color Vision Deficiency (Color Blindness) Simulation
+            <h2 className="text-base font-semibold text-gray-900 mb-1">
+                {t.cvdTitle}
             </h2>
             <p className="text-sm text-gray-900 mb-4">
-                How your color combination appears with different types of color vision deficiency:
+                {t.cvdSubtitle}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -39,7 +39,7 @@ function ColorVisionSimulation({ color1, color2 }) {
                             {/* Card Header */}
                             <div className="px-4 py-3 border-b border-gray-200">
                                 <p className="text-sm font-semibold text-gray-900">{type.label}</p>
-                                <p className="text-xs text-gray-600">{type.description}</p>
+                                <p className="text-xs text-gray-900">{t.visionTypes[type.id]}</p>
                             </div>
 
                             {/* Color Preview */}

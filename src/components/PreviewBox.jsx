@@ -1,7 +1,7 @@
 function PreviewBox({ color1, color2}) {
     return (
         <div className="mb-6">
-            <p className="font-semibold text-gray-700 mb-2">Preview</p>
+            <p className="font-semibold text-gray-900 mb-2">Preview</p>
             <div
                 className="p-6 rounded-lg border border-gray-200"
                 style={{ backgroundColor: color1 }}
